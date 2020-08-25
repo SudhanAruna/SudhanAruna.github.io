@@ -1,10 +1,10 @@
 ---
 layout: post
 title:  "Implementation of varlink support for libnmstate"
-date:   2020-07-01 18:20:01 +0530
+date:   2020-08-04 18:20:01 +0530
 categories: Fedora GSoC Nmstate 
 ---
-[Fedora Community blog post][blog_link]
+### [Click to read Fedora Community blog post][blog_link]
 
 This blog is about the varlink implementation in nmstate and my experience in this during this period. As a computer science enthusiast I’m interested in researching new topics. This project is my first experience in open source development has been a challenging experience. The project aims to enable libnmstate to be used by other programming languages, systems which don’t support python and via remote connections. I have also included some links which I referred to. I hope it will be helpful for students like me.
 
@@ -15,14 +15,18 @@ Nmstate is a python library that manages the networking setting of the host usin
 In the current implementation libnmstate functions can be accessed with varlink stdin/out and varlink client. Nmstate methods and errors are defined in format to support future scalability in networking state schema and minimizing the complexity. Structure is defined in the io.nmstate.valink interface file and also interface address defined as io.nmstate. The interface file can be accessed using the following command.
 
 All function methods and error returns with a list of logs include debug or higher level logs. The interface file can be accessed using the following command
-$ varlink help unix:/run/nmstate.so/io.nmstate
 
+```bash
+$ varlink help unix:/run/nmstate.so/io.nmstate
+```
 
 Defined functions are called with the interface address and should be capitalized. Passing value via varlink stdio/out should be in JSON string format. 
 
 libnmstate show function example:
 
+```bash
 $ varlink call unix:/run/nmstate.so/io.nmstate.Show
+```
 
 Using varlink resolver : $ varlink call io.nmstate.Show
 
@@ -31,7 +35,9 @@ libnmstate apply function example:
 
 To support the varlink python package version 29.0.0 format of passing arguments to methods had to change. The arguments are passed under arguments key as json object.
 
+```bash
 $ varlink call unix:/run/nmstate.so/io.nmstate.Apply '{“arguments”: {"desired_state": {"interfaces": [{"name": "foo", "state": "up", "type": "dummy", “ipv4”:{“enabled”: false}, “ipv6”: {“enabled”: false}}]}, “save_to_disk”: true } }’ 
+```
 
 ## Varlink client in python language
 Functions can also be accessed using the varlink client implementation. Currently varlink supports client implementation in Python, C, Go, Java and Rust languages. Follow the documentation for new language binding.Varlink python package only supports for python3.

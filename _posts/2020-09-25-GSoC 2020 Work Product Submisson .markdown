@@ -1,21 +1,47 @@
 ---
 layout: post
 title:  "GSoC 2020 Work product"
-date:   2020-07-01 18:20:01 +0530
-categories: Fedora GSoC Nmstate Summer Coding
+date:   2020-08-25 12:20:01 +0530
+categories: Fedora GSoC Nmstate Summer-Coding
 ---
-[Fedora Community Blog][blog_link]
+# Adding varlink support for Nmstate: GSoC 2020 under Fedora projects
 
-This blog is about my experience working in [Nmstate][nmstate_pg] project and first month in GSoC coding period. I was able to start working on implementing the varlink support mid of community bonding period. This was very helpful because I was able to identify some issues in the python varlink package that was not mentioned in documentation and I had to spend more time finding the cause of the issue. There have been minor changes to proposed code structure and project timeline after the feedback from the community members. In the beginning it was difficult to identify syntax errors in varlink interface definitions. This has been slow progress because of new issues and following are the tasks I have completed so far.
+## Mentee
+Arunagirinadan Sudharshan
+* Github handle : ```@SudhanAruna```
 
-* Defining varlink interface file
-* Implementing varlink support of libnmstate functions.
-* Defined test cases for varlink functions using the varlink client.
-* Created the documentations for varlink support for libnmstate.
-* Integrating with the package.
+## Mentors
 
-During this coding period I learned about containers and containerized testing. I have been learning about rpm packaging and python package formats recently to understand failing dependency. My mentors’ feedback and support was very helpful in identifying and understanding the issues. Looking forward for new challenges and learning more next in next phase of coding period.
+* Fernando Fernandez Mancera
+* Till Maas
+* Gris Ge
+
+## About the project and tasks
+Nmstate is a python library that manages the networking setting of the host using the NetworkManger to apply the configuration. Tasks assigned to me as a GSoC mentee was to implement varlink support to libnmstate functions which enables nmstate to used by other programming languages and systems.
 
 
-[nmstate_pg]: https://www.nmstate.io/ 
-[blog_link]: https://communityblog.fedoraproject.org/gsoc-2020-nmstate-project-update-for-june/
+## Progress
+I was able start working on this tasks in mid of community bonding period. During this GSoC period I learnt alot about open source community and approches in development.
+
+Below are patches I worked to understand the project code base (Before community bonding period).
+
+* [PR #953](https://github.com/nmstate/nmstate/pull/953) [Merged] fix for [Issue #935](https://github.com/nmstate/nmstate/issues/935)
+
+* [PR #1030](https://github.com/nmstate/nmstate/pull/1030) [Merged] fix for [Issue #1020](https://github.com/nmstate/nmstate/issues/1020)
+ 
+ Following are links for the implementing varlink support
+
+ * Implementing varlink support for libnmstate [PR #1270](https://github.com/nmstate/nmstate/pull/1270) [Merged]
+
+ * Implemented systemd service for nmstate-varlink [PR #1271](https://github.com/nmstate/nmstate/pull/1271) [Merged]
+
+ * Updated manpage for nmstate-varlink [PR #1297](https://github.com/nmstate/nmstate/pull/1297) [Merged]
+
+ * Added documentation for nmstate-varlink service in ```nmstate.io``` [PR #44](https://github.com/nmstate/nmstate.github.io/pull/44)
+
+ I have also written blog post under fedora community blog post about the implementation of varlink in nmstate and about my experience during the implementation as mentee. 
+ 
+ * [Blog post](https://communityblog.fedoraproject.org/implementation-of-varlink-support-for-libnmstate-gsoc20-nmstate-project/)
+
+## To do
+Additionally task to be completed is improve kubernetes-nmstate to support varlink implementation in nmstate.
