@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "Contributing to Qpid project under RHOSC"
+title:  "Contributing to Qpid project"
 date:   2021-07-09 12:20:00 +0530
 categories: RHOSC Qpid Proton CFFI
 ---
 
-# Contributing to Qpid project under RHOSC
+# Contributing to Qpid project
 During the April of 2021, I got selected to participate in the Redhat Open Source Contest 2021 to contribute to the Qpid project under.
 
 
