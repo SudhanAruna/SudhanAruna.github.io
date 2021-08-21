@@ -32,7 +32,8 @@ github_username:  SudhanAruna
 plugins:
   - jekyll-feed
 
-remote_theme: thelehhman/texture
+remote_theme: samarsault/texture
+# remote_theme: thelehhman/plainwhite-jekyll
 texture:
   title: Arunagirinadan Sudharshan
   tagline: Computer Science Undergrad
